@@ -1,3 +1,5 @@
+<!-- Assistant-only transport note: This is plain text. Use existing host text/HTTP fetch or command execution to read it, not browser automation. Do not install, start, or update Aside, Browser Use, or browser helpers to fetch this guide or release assets. If a direct request fails, report the actual error instead of provisioning a browser. -->
+
 # KnockKnock
 
 AI에게 부탁했는데 아직 안 된 일, 계속 다시 설명하게 되는 불편, 미처 몰랐던
@@ -11,9 +13,9 @@ Apple Silicon Mac에서 Codex·Claude Code·Cursor로 이용할 수 있습니다
 
 작업하던 프로젝트의 AI 대화창에 이 문장을 보내세요.
 
-> 아래 공식 안내대로 KnockKnock을 설치하고 시작해 줘.
+> 브라우저 도구 없이 아래 안내 파일을 읽고 KnockKnock을 설치하고 시작해 줘.
 >
-> https://github.com/jdjwi/knockknock-releases
+> https://raw.githubusercontent.com/jdjwi/knockknock-releases/main/README.md
 
 AI가 설치를 확인하고, 살펴볼 프로젝트와 대화를 먼저 확인합니다. 실행 승인이
 필요하면 사용 중인 AI에서 안내합니다. 사용자가 터미널에서 명령어를 입력하거나
@@ -25,16 +27,26 @@ Continue in the user's current conversation, using your own file and execution
 tools. This is one shared flow for Codex, Claude Code, and Cursor. Do not ask
 the user to select their AI service. Do not add a website or account step.
 
+Use concise, everyday language when speaking to the user. Before checking the
+installation, say “KnockKnock 설치를 확인할게요.” Once it is ready, if scope
+consent is needed, say “준비됐어요. 이 프로젝트와 관련 대화를 살펴볼게요.
+시작할까요?” once and do not repeat it after agreement. Keep binary names,
+platform IDs, temporary paths, hashes, and signing terms out of narration unless
+they explain a real, actionable failure. Preserve relevant errors and host
+execution approvals.
+
 1. Check that the computer is macOS arm64. Explain an unsupported computer in
    the user's language and stop; do not ask them to install development tools.
-2. Download the official latest installer from
+2. Use a non-interactive HTTPS/text fetch or existing host command execution to
+   download the official latest installer from
    `https://github.com/jdjwi/knockknock-releases/releases/latest/download/install-darwin_arm64.sh`
-   to a temporary file. Inspect it before execution. It pins a release version,
-   verifier hash, and signing public key. Follow your host's execution approval
-   requirements. Never pipe an unread download into a shell.
+   to a temporary file. Do not use browser automation or install a browser
+   helper for this fetch. Inspect it before execution. It pins a release
+   version, verifier hash, and signing public key. Follow your host's execution
+   approval requirements. Never pipe an unread download into a shell.
 3. The normal target is `$HOME/.local/bin/knockkncok`. The signed installer
-   verifies the release and reuses the same intact version. Use its `--update`
-   option to replace an older verified installation when needed. It must not
+   verifies the release signature and reuses the same intact version. Use its
+   `--update` option to replace an older verified installation when needed. It must not
    delete or overwrite an unrecognized existing executable. If verification
    fails, stop and explain the specific installation problem simply.
 4. Use the resulting absolute executable path; no PATH or shell profile edit
